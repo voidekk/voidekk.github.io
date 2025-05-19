@@ -116,6 +116,13 @@ body {
 
 .grid-item.expanded#equipe {
     height: 21rem;
+    p {
+        text-align: left;
+        span{
+            color: var(--mint-green);
+            font-weight: bold;
+        }
+    }
 }
 
 
@@ -125,6 +132,15 @@ body {
 
 .grid-item.expanded#linha-tempo {
     height: 24.5rem;
+}
+
+.grid-item.expanded#custo{
+    height: 17.5rem;
+    b {
+        font-size: 1.2rem;
+        color: var(--white);
+        text-shadow: 0 0px 10px var(--aqua-blue), 0 0 5px rgba(255, 255, 255, 0.5);
+    }
 }
 
 .grid-item.expanded h2{
