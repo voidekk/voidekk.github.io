@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --primary-blue: #2431DA;
+    --light-blue: #248CDA;
+    --aqua-blue: #24DACD;
+    --turquoise: #05ecdd;
+    --purple: #7224DA;
+    --dark-purple: #4D1D8D;
+    --deep-blue: #131A74;
+    --mint-green: #9ED7D2;
+}
+
+* {
+    box-sizing: 100vmax;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background:
+        linear-gradient(135deg, var(--light-blue) 0%, var(--purple) 60%, var(--aqua-blue) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.3));
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+    overflow: overlay;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 40px 0 0 0;
+    font-weight: bold;
+    color: var(--white);
+    text-shadow: 0 0 30px var(--aqua-blue), 0 0 10px var(--primary-blue);
+    letter-spacing: 2px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background: linear-gradient(0deg, var(--dark-purple) 0%, var(--purple) 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(36, 49, 218, 0.15), 0 0 0 0 var(--aqua-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    min-width: 0;
+    cursor: pointer;
+    transition:
+        height 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.6s,
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.grid-item:hover {
+    transform: scale(1.1);
+    z-index: 2;
+    box-shadow: 0 0 40px 10px var(--aqua-blue), 0 8px 32px 0 rgba(36, 49, 218, 0.15);
+    animation-play-state: paused;
+
+    h2 {
+        color: var(--aqua-blue);
+    }
+}
+
+.grid-item h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--white);
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+    letter-spacing: 1px;
+    transition: letter-spacing 1.2s cubic-bezier(0.22, 1, 0.36, 1);;
+}
+
+.grid-item p {
+    opacity: 0;
+    max-height: 0;
+    transition:
+        opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+        max-height 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    margin: 16px 0 0 0;
+    padding: 0 12px;
+    text-align: center;
+    color: var(--white);
+    font-weight: normal;
+    overflow: hidden;
+}
+
+.grid-item.expanded {
+    height: 15rem;
+    background: var(--purple);
+    box-shadow: 0 0 40px 10px var(--aqua-blue), 0 8px 32px 0 rgba(36, 49, 218, 0.15);
+}
+
+.grid-item.expanded#equipe {
+    height: 21rem;
+}
+
+
+.grid-item.expanded#grupos-entrega {
+    height: 21.5rem;
+}
+
+.grid-item.expanded#linha-tempo {
+    height: 24.5rem;
+}
+
+.grid-item.expanded h2{
+    letter-spacing: 4px;
+}
+
+.grid-item.expanded p {
+    opacity: 1;
+    max-height: 30rem;
+}
+
+/* Scrollbar styling */
+@media screen and (min-width: 0) {
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.3);
+        border: 3px solid transparent;
+        background-clip: padding-box;
+        border-radius: 8px;
+        min-height: 50px;
+        transition: background-color 0.3s;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    ::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+}
+
+/* Firefox - much simpler */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
